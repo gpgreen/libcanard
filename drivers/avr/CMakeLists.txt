@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8.9)
 
 # MCU name
 # set(MCU   atmega32)
-set(MCU   at90can128)
+# set(MCU   at90can128)
+set(MCU	    at90can32)
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
@@ -22,7 +23,7 @@ set(MCU   at90can128)
 #         F_CPU = 16000000
 #         F_CPU = 18432000
 #         F_CPU = 20000000
-set(F_CPU 16000000)
+set(F_CPU 8000000)
 
 ############################################
 # !!!!!! NO CHANGES BELOW THIS LINE !!!!!! #
@@ -30,6 +31,7 @@ set(F_CPU 16000000)
 
 add_definitions(-DF_CPU=${F_CPU})
 add_definitions(-DHAS_CAN_CONFIG_H)
+add_definitions(-DF_CPU_${F_CPU})
 
 # program names
 set(AVRCPP   avr-g++)
@@ -72,7 +74,7 @@ set(CWARN     "-Wall -Wstrict-prototypes -Wl,--gc-sections -Wl,--relax")
 set(CTUNING   "-funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -ffunction-sections -fdata-sections")
 set(COPT      "-Os -lm -lprintf_flt")
 set(CMCU      "-mmcu=${MCU}")
-set(CDEFS     "-DF_CPU=${F_CPU}")
+set(CDEFS     "-DF_CPU=${F_CPU} -DF_CPU_${F_CPU}")
 
 set(CFLAGS   "${CMCU} ${CDEBUG} ${CDEFS} ${COPT} ${CWARN} ${CSTANDARD} ${CTUNING}")
 set(CXXFLAGS "${CMCU} ${CDEBUG} ${CDEFS} ${COPT} ${CTUNING}")
