@@ -42,7 +42,8 @@ extern "C" {
 
 /// By default this macro resolves to the standard assert(). The user can redefine this if necessary.
 #ifndef CANARD_ASSERT
-# define CANARD_ASSERT(x)   assert(x)
+#include "globals.h"
+# define CANARD_ASSERT   COMPASS_ASSERT
 #endif
 
 #define CANARD_GLUE(a, b)           CANARD_GLUE_IMPL_(a, b)

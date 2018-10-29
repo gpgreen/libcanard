@@ -46,3 +46,8 @@ cmake-build-*/
 
 # Generated files
 dsdlc_generated/
+*.lst
+
+# Python stuff
+*.pyc
+__pycache__

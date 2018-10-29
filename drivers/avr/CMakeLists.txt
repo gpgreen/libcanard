@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.9)
 # MCU name
 # set(MCU   atmega32)
 # set(MCU   at90can128)
-set(MCU	    at90can32)
+set(MCU	    atmega644)
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
